@@ -1,10 +1,24 @@
+# Backend
 
+## Setup and Start
+- `cd backend`
+- `npm install`
+- Create .env:
+    - `DATABASE_URL=postgres://dev:devpass@localhost:5432/map` 
+    - `PORT=4000`
 
-# start DB + api via docker-compose
-docker compose up --build
-# in another shell (or inside container) run migrations:
-psql $DATABASE_URL -f src/migrations/001_init.sql
-psql $DATABASE_URL -f src/migrations/002_seed.sql
-# start the API locally (dev)
-npm run start
-# healthcheck: curl http://localhost:4000/health
+- `docker compose up -d`
+- `psql $DATABASE_URL -f src/migrations/init.sql`
+- `psql $DATABASE_URL -f src/migrations/test.sql`
+- `npm run build`
+- `npm run dev`
+- `npm run start`
+
+## Check Status: 
+- `curl http://localhost:4000/health`
+
+## Check Building Data: 
+- `curl http://localhost:4000/buildings`
+
+## Stop Database: 
+- `docker compose down`
