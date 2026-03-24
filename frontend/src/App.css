@@ -36,3 +36,20 @@
 #search_button:hover{
     background-color: darkblue;
 }
+#pop-up{
+    position: fixed;
+    width: 60%;
+    height: 70%;
+    left: 50%;
+    margin-top: 70px;
+    margin-left: -30%;
+    background-color: white;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+#closePopupButton{
+    position: absolute;
+    right: 10px;
+    display:block
+}
