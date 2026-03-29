@@ -1,0 +1,55 @@
+#background{
+    position:fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(136, 207, 149);
+    z-index: 0;
+    left:0px;
+    top:0px;
+    }
+#search{
+    position:fixed;
+    padding:10px;
+    z-index: 1;
+    right:0;
+    width:100%;
+    align-content:flex-end;
+}
+#search_bar{
+    background-color: white;
+    float: right;
+    padding: 10px;
+    max-width: 300px;
+    border:2px gray;
+    border-radius: 30px;
+}
+#search_button{
+    background-color: blue;
+    width: 35px;
+    height:35px;
+    padding: 10px;
+    border:0;
+    float: right;
+    border-radius: 30px;
+    margin-left:10px;
+}
+#search_button:hover{
+    background-color: darkblue;
+}
+#pop-up{
+    position: fixed;
+    width: 60%;
+    height: 70%;
+    left: 50%;
+    margin-top: 70px;
+    margin-left: -30%;
+    background-color: white;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+#closePopupButton{
+    position: absolute;
+    right: 10px;
+    display:block
+}
