@@ -1,10 +1,11 @@
 import './App.css';
 import React, { useState } from 'react';
 import search_icon from './search_icon.svg';
+import {AdvancedMarker, APIProvider, Map, MapCameraChangedEvent, Marker} from '@vis.gl/react-google-maps';
 
 function App() {
   const [text, setText]=useState("Search...");
-    const [isHidden, setIsHidden] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -22,21 +23,20 @@ function App() {
   }
 
   function openPopup(){
-    setIsHidden(false);
+    setIsOpen(true);
   }
 
   function closePopup(){
-    setIsHidden(true)
+    setIsOpen(false)
   }
-  
+
+  function onMapClick(e){
+    console.log("Latitude: " + e.detail.latLng.lat + " longitude: " + e.detail.latLng.lng)
+  }
+
   return (
     <div className="App">
       <div>
-
-        {/* Temporary button to open popup. */}
-        <button onClick={openPopup} style={{position : 'fixed', zIndex : 10, marginLeft : 100}}>
-          Open popup
-        </button>
 
         {/* Search bar and button. Text entry is stored in text variable */}
         <form id="search" onSubmit={handleSubmit}>
@@ -50,11 +50,24 @@ function App() {
 
         {/* div where you would put the map? */}
         <div id="background">
-          map here
+          <APIProvider apiKey={'AIzaSyC8QHz5ffDQbmWplTjAJd71h07YukB4JRI'} onLoad={() => console.log('Maps API has loaded.')}>
+            <Map
+                defaultZoom={20}
+                defaultCenter={ { lat: 29.644274160235955, lng: -82.34719287634364} }
+                mapId = "map"
+                onClick = {onMapClick}
+                >
+                {/* marker over malachowsky hall */} 
+                <AdvancedMarker 
+                  position={{lat: 29.644, lng: -82.34772}} 
+                  onClick = {openPopup}
+                  />
+            </Map>
+          </APIProvider>
         </div>
 
         {/* empty pop up */}
-        <div id="pop-up" style={{ display: isHidden ? 'none' : 'block' }}>
+        <div id="pop-up" style={{ display: isOpen ? 'block' : 'none' }}>
             <button onClick={closePopup} id="closePopupButton">
               X
             </button>
