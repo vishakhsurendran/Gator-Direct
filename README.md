@@ -3,7 +3,7 @@
 ## Requirements:
  - Node.js
  - npm
- - Docker: [text](https://www.docker.com/get-started/)
+ - Docker: [Install Docker](https://www.docker.com/get-started/)
  - Docker Compose
 
 ## To Run: 
