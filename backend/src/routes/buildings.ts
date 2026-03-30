@@ -8,7 +8,6 @@ r.get('/', async (req, res) => {
     const { rows } = await pool.query(q);
 
     const features = rows.map((row: any) => {
-      // ST_AsGeoJSON can return null -> guard it
       const geom = row.footprint ? JSON.parse(row.footprint) : null;
       return {
         type: 'Feature',

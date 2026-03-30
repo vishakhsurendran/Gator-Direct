@@ -15,7 +15,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Setup Node
         uses: actions/setup-node@v4
-        with: node-version: 18
+        with: 
+          node-version: 18
       - run: npm ci
       - run: npm test --if-present
       - run: npm run lint --if-present

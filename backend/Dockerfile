@@ -11,8 +11,7 @@ FROM node:18-slim
 WORKDIR /app
 ENV NODE_ENV=production
 COPY package*.json ./
-# install only production deps
 RUN npm ci --omit=dev
 COPY --from=build /app/dist ./dist
-EXPOSE 4000
+EXPOSE 4001
 CMD ["node", "dist/index.js"]
