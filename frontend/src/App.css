@@ -64,6 +64,40 @@
   z-index: 9999;
 }
 
+.welcome_page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0021a5; /* UF Blue */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; /* This ensures it stays on top of the Map */
+  text-align: center;
+}
+
+#start_button {
+  margin-top: 20px;
+  padding: 12px 30px;
+  background-color: #fa4616; /* UF Orange */
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.welcome_page img.title {
+  width: 150px;
+  margin: 20px 0;
+}
+
+
 .search_result {
   padding: 10px 16px;
   cursor: pointer;
