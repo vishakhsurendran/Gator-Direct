@@ -1,0 +1,22 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgis/postgis:15-3.4
+        ports: ['5432:5432']
+        env:
+          POSTGRES_USER: dev
+          POSTGRES_PASSWORD: devpass
+          POSTGRES_DB: map
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with: 
+          node-version: 18
+      - run: npm ci
+      - run: npm test --if-present
+      - run: npm run lint --if-present

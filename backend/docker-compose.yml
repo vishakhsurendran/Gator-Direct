@@ -1,0 +1,20 @@
+services:
+  db:
+    image: postgis/postgis:15-3.4
+    environment:
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: devpass
+      POSTGRES_DB: map
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+  api:
+    build: .
+    env_file: .env
+    depends_on:
+      - db
+    ports:
+      - "4000:4000"
+volumes:
+  db_data:
