@@ -9,6 +9,20 @@ const API_BASE  = 'http://localhost:4000';
 const MAPS_KEY  = 'AIzaSyC8QHz5ffDQbmWplTjAJd71h07YukB4JRI';
 const UF_CENTER = { lat: 29.6436, lng: -82.3549 };
 
+function WelcomePage({ onStart }){
+  return (
+    <div className="welcome_page">
+      <h2>Welcome to the UF Campus Navigator</h2>
+      <img className = "title" src='./public/logo192.png' alt="UF Logo" />
+      <h3> Navigate the swamp with ease!</h3>
+      <button id="start_button" onClick={(e) => {
+        e.stopPropagation();
+        onStart();
+      }}>Get Started</button>
+    </div>
+      )
+}
+
 function MapController({ center }) {
   const map = useMap();
   useEffect(() => {
@@ -85,7 +99,16 @@ export default function App() {
   const [indoorRoute,      setIndoorRoute]      = useState(null);
   const [currentFloor,     setCurrentFloor]     = useState(1);
   const [loadingRoute,     setLoadingRoute]     = useState(false);
+  const [showWelcome,      setShowWelcome]      = useState(true);
 
+  const hasInit = useRef(false);
+  useEffect(() => {
+    if (!hasInit.current) {
+      console.log("mounted first time");
+      hasInit.current = true;
+    };
+  }, []);
+  
   /* Pop-up for building that has indoor data */
   function openBuilding(buildingId, buildingName) {
     const bData = UF_BUILDINGS.find(b => b.dbId === buildingId) || {};
@@ -173,6 +196,7 @@ export default function App() {
   return (
     <div className="App">
       {/* Building search */}
+      {showWelcome && <WelcomePage onStart={() =>  setShowWelcome(false)} />}
       <div id="search">
         <BuildingSearch onBuildingSelect={handleBuildingSelect} />
       </div>
