@@ -27,7 +27,8 @@ Campus navigation at the University of Florida can be challenging. Gator Direct 
 
 ### Start Front End: 
 1. Go to frontend directory: `cd frontend`
-2. Start frontend: `npm start`
+2. Install requirements: `npm install`
+3. Start frontend: `npm start`
 
 _If the frontend and backend are not connected when you start running both,_  
 - Go to the backend terminal
