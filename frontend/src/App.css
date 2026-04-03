@@ -64,37 +64,107 @@
   z-index: 9999;
 }
 
-.welcome_page {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #0021a5; /* UF Blue */
-  color: white;
-  display: flex;
-  flex-direction: column;
+.App{
   align-items: center;
   justify-content: center;
-  z-index: 9999; /* This ensures it stays on top of the Map */
+}
+
+.page_background {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 33, 165, 0.6); 
+  display: flex;
+  align-items: center; /* Vertical center */
+  justify-content: center; /* Horizontal center */
+  z-index: 9998;
+}
+
+.welcome_page {
+  position: relative; /* Changed from 'fixed' to work with flexbox centering */
+  width: 60vw; /* Fixed width works best for "pop-out" images */
+  max-width: 90vw;
+  padding: 60px 40px;
+  background-color: #0021A5; /* Fully opaque solid UF blue */
+  color: white;
+  border-radius: 30px; /* Rounded edges */
   text-align: center;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  align-items: center;
+}
+
+.welcome_card {
+  position: relative; /* Essential for the pop-out images */
+  width: 500px;
+  max-width: 80vw;
+  padding: 40px;
+  background-color: #0021A5; /* Fully opaque */
+  color: white;
+  border-radius: 24px; /* Rounded edges */
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  z-index: 9999;
+}
+
+.welcome_page .title {
+  width: 100%;       /* Makes the logo fit the width of the blue card */  /* Prevents it from getting too massive */
+  height: auto;
+  margin: 30px auto;    /* Adds space above and below the logo */
+  display: block;
+}
+
+.welcome_page h2 {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.pop-out {
+  position: absolute;
+  width: 15vw; /* Adjust size as needed */
+  height: auto;
+  z-index: 10001; /* Above the card */
+}
+
+.pop-out.left {
+  left: -70px; /* Pulls it halfway out the left side */
+  top: 15%;
+  height: auto;
+
+}
+
+.pop-out.right {
+  right: -70px; /* Pulls it halfway out the right side */
+  top: 15%;
+  height: auto;
 }
 
 #start_button {
-  margin-top: 20px;
-  padding: 12px 30px;
+  margin-top: 25px;
+  padding: 15px 40px;
   background-color: #fa4616; /* UF Orange */
   color: white;
   border: none;
-  border-radius: 25px;
+  border-radius: 50px;
   font-weight: bold;
   cursor: pointer;
-  font-size: 1.1rem;
+  transition: transform 0.2s;
+}
+
+#start_button:hover {
+  transform: scale(1.05);
 }
 
 .welcome_page img.title {
-  width: 150px;
-  margin: 20px 0;
+  width: 40vw;
+  margin: 5px 0;
+  z-index: 10000;
 }
 
 
