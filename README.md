@@ -21,7 +21,7 @@ Campus navigation at the University of Florida can be challenging. Gator Direct 
     - `PORT=4000`
 4. Start Docker: `docker compose up -d --build`
 5. Initialize the database: 
-    - MacOS/Linux: `docker exec -i $(docker ps -qf "name=db") \ psql -U dev -d map < src/migrations/init.sql`
+    - MacOS/Linux: `docker exec -i $(docker ps -qf "name=db") psql -U dev -d map < src/migrations/init.sql`
     - Windows: `Get-Content src/migrations/init.sql | docker exec -i backend-db-1 psql -U dev -d map`
 6. Optionally, check the backend is functional: `curl http://localhost:4000/health`  
 
