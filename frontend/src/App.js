@@ -11,16 +11,28 @@ const UF_CENTER = { lat: 29.6436, lng: -82.3549 };
 
 function WelcomePage({ onStart }){
   return (
-    <div className="welcome_page">
-      <h2>Welcome to the UF Campus Navigator</h2>
-      <img className = "title" src='./public/logo192.png' alt="UF Logo" />
-      <h3> Navigate the swamp with ease!</h3>
-      <button id="start_button" onClick={(e) => {
-        e.stopPropagation();
-        onStart();
-      }}>Get Started</button>
+    <div className="page_background">
+      <div className="welcome_page">
+        {/* Decorative Pop-outs */}
+        <img src="/gator direct mascot.png" className="pop-out left" alt="" />
+        <img src="/gator direct tree.png" className="pop-out right" alt="" />
+
+        <h2>Welcome to the UF Campus Navigator</h2>
+        
+        {/* This image will now stay inside the box */}
+        <img className="title" src='/gator direct title.png' alt="UF Logo" />
+        
+        <h3>Navigate the swamp with ease!</h3>
+        
+        <button id="start_button" onClick={(e) => {
+          e.stopPropagation();
+          onStart();
+        }}>
+          Get Started
+        </button>
+      </div>
     </div>
-      )
+  );
 }
 
 function MapController({ center }) {
@@ -108,7 +120,7 @@ export default function App() {
       hasInit.current = true;
     };
   }, []);
-  
+
   /* Pop-up for building that has indoor data */
   function openBuilding(buildingId, buildingName) {
     const bData = UF_BUILDINGS.find(b => b.dbId === buildingId) || {};
