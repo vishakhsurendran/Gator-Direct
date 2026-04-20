@@ -1,4 +1,11 @@
 import React from 'react';
+import floor1 from "./floor_photos/1.png"
+import floor2 from "./floor_photos/2.png"
+import floor3 from "./floor_photos/3.png"
+import floor4 from "./floor_photos/4.png"
+import floor5 from "./floor_photos/5.png"
+import floor6 from "./floor_photos/6.png"
+import floor7 from "./floor_photos/7.png"
 
 // Color palettes for zones
 const C = {
@@ -112,6 +119,62 @@ function IndoorMap({ rooms, destinationRoomId, floorLevel }) {
   }
 
   const { cY, cH, rooms: zones } = floorDef;
+
+  if(floorLevel === 1){
+    return(
+      <div id="indoor_map">
+        <img src={floor1} style={{width:"100%"}}></img>
+      </div>
+    );
+  }
+
+    if(floorLevel === 2){
+    return(
+      <div id="indoor_map">
+        <img src={floor2} style={{width:"100%"}}></img>
+      </div>
+    );
+  }
+
+  if(floorLevel === 3){
+    return(
+      <div id="indoor_map">
+        <img src={floor3} style={{width:"100%"}}></img>
+      </div>
+    );
+  }
+
+    if(floorLevel === 4){
+    return(
+      <div id="indoor_map">
+        <img src={floor4} style={{width:"100%"}}></img>
+      </div>
+    );
+  }
+
+    if(floorLevel === 5){
+    return(
+      <div id="indoor_map">
+        <img src={floor5} style={{width:"100%"}}></img>
+      </div>
+    );
+  }
+
+    if(floorLevel === 6){
+    return(
+      <div id="indoor_map">
+        <img src={floor6} style={{width:"100%"}}></img>
+      </div>
+    );
+  }
+
+    if(floorLevel === 7){
+    return(
+      <div id="indoor_map">
+        <img src={floor7} style={{width:"100%"}}></img>
+      </div>
+    );
+  }
 
   return (
     <div id="indoor_map">
